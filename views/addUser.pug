@@ -1,0 +1,208 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Aircraft Management System - Add Aircraft
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    style.
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: 
+          linear-gradient(135deg, rgba(102, 126, 234, 0.4) 50%, rgba(118, 75, 162, 0.8) 30%),
+          url('/images/jets.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form{
+     
+        
+      }
+  
+      .form_container_add {
+        width: 100%;
+        max-width: 600px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        display: grid;
+        gap: 20px;
+      
+     
+        
+      }
+      .form_container_add img {
+        width: 60px;
+        margin-bottom: 20px;
+
+           color:grey;
+      
+
+      }
+      .form_container_add label {
+        font-weight: 600;
+        display: block;
+      }
+      .form_container_add .input,
+      .form_container_add .upload_btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+      .form_container_add .input {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+      }
+      .form_container_add .input:focus,
+      .form_container_add .upload_btn:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form_container_add .content1,
+      .form_container_add .content2,
+      .form_container_add .content3 {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+      }
+      .form_container_add .content1 label,
+      .form_container_add .content2 label,
+      .form_container_add .content3 label {
+        margin-bottom: 10px;
+      }
+      .form_container_add .content1 label i,
+      .form_container_add .content2 label i,
+      .form_container_add .content3 label i {
+        margin-right: 10px;
+      }
+      .form_container_add .checkbox_label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .form_container_add .checkbox_label input[type="checkbox"] {
+        margin-top: 0;
+        width: auto;
+        appearance: none;
+        border: 1px solid #ccc;
+        height: 20px;
+        width: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .form_container_add .checkbox_label input[type="checkbox"]:checked {
+        background-color: #667eea;
+        border-color: #667eea;
+      }
+      .form_container_add .checkbox_label input[type="checkbox"]:checked::before {
+        content: '\f00c'; /* FontAwesome checkmark icon */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: white;
+        font-size: 14px;
+        display: inline-block;
+        text-align: center;
+      }
+      .form_container_add .upload_btn {
+        background-color: #667eea;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: inline-block;
+        text-align: center;
+        border-radius: 8px;
+      }
+      .form_container_add .upload_btn:hover {
+        background-color: #764ba2;
+      }
+      .form_container_add button.submit {
+        padding: 12px 24px;
+        background-color: #667eea;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+      .form_container_add button.submit:hover {
+        background-color: #764ba2;
+      }
+
+      i{
+      
+        padding-right:2%;
+       
+      }
+
+      
+  body
+    .form_container_add
+        form.form(action="/new_user", method="POST", enctype="multipart/form-data")
+            .content1
+                img(src="/images/1.svg", alt="")
+                br
+                label(for="aircraft_name")
+                i.fas.fa-plane
+                | Aircraft Name
+                input.input(type="text" name="aircraft_name" placeholder="Aircraft Name" required="required")
+                br
+
+                label(for="aircraft_number")
+                i.fas.fa-hashtag
+                | Aircraft Number
+                input.input(type="text" name="aircraft_number" placeholder="Aircraft Number" required="required")
+                br
+
+                label(for="flight_hours")
+                i.fas.fa-clock
+                | Flight Hours
+                input.input(type="number" name="flight_hours" placeholder="Flight Hours" required="required")
+                br
+
+                label(for="landings")
+                i.fas.fa-landmark
+                | Landings
+                input.input(type="number" name="landings" placeholder="Landings" required="required")
+            
+            .content2
+                img(src="/images/2.svg", alt="")
+                br
+
+                label(for="date")
+                i.fas.fa-calendar-alt
+                | Date of Commissioning
+                input(type="date" name="date")
+                br
+
+                label(for="servicability")
+                i.fas.fa-check-square
+                | Servicability
+                input(type="checkbox" name="servicability")
+
+            .content3
+                img(src="/images/3.svg", alt="")
+                br
+
+                label(for="upload")
+                i.fas.fa-file-upload
+                | Upload Image
+                input.upload_btn(type="file" name="upload")
+            
+            button.submit(type="submit") Submit

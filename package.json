@@ -1,0 +1,36 @@
+{
+  "name": "site",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app.js",
+  "type": "module",
+  "engines": {
+    "node": ">=16.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node app.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.22.17",
+    "@babel/node": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "@google-cloud/storage": "^6.8.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "firebase": "^10.12.3",
+    "firebase-admin": "^11.10.1",
+    "formidable-serverless": "^1.1.1",
+    "google-auth-library": "^9.0.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.1",
+    "pug": "2.0.0-beta11",
+    "uuid-v4": "^0.1.0",
+    "uuid4": "^2.0.3"
+  }
+}

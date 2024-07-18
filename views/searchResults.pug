@@ -1,0 +1,176 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Aircraft Management System - Search Results
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    style.
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: 
+          linear-gradient(135deg, rgba(102, 126, 234, 0.4) 50%, rgba(118, 75, 162, 0.8) 30%),
+          url('/images/jets.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Arrange content with footer at the bottom */
+      }
+
+      .scrollable-container {
+        overflow-x: auto;
+        padding: 20px;
+        max-width: 100%;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        scrollbar-width: thin; /* For Firefox */
+        margin-top:5%;
+      }
+
+      .card-wrapper {
+        display: flex;
+        flex-wrap: nowrap; /* Ensure cards stay in one row */
+        gap: 20px;
+      }
+
+      .search_content {
+        width: 300px;
+        overflow: hidden; /* Hide overflowing content */
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .search_content:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        z-index: 1; /* Ensure hovered card appears above others */
+      }
+
+      .search_section2 {
+        height: 200px; /* Fixed height for image section */
+        overflow: hidden; /* Hide overflowing content */
+      }
+
+      .userImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure images fill their container */
+        transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+      }
+
+      .search_section1 {
+        padding: 10px;
+        text-align: left;
+      }
+
+      .biodata {
+        margin-bottom: 10px;
+      }
+
+      .search_buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+      }
+
+      .links {
+        text-decoration: none;
+        color: #667eea;
+      }
+
+      .links:hover {
+        color: #764ba2;
+      }
+
+      button.update, button.delete {
+        background-color: #667eea;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button.update:hover, button.delete:hover {
+        background-color: #764ba2;
+      }
+
+      /* Styling scrollbar */
+      .scrollable-container::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .scrollable-container::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Track color */
+        border-radius: 10px;
+      }
+
+      .scrollable-container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Thumb color */
+        border-radius: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .scrollable-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Thumb color on hover */
+      }
+
+      /* Hide scrollbar when not hovering */
+      .scrollable-container:hover::-webkit-scrollbar-thumb {
+        background-color: #555;
+      }
+
+      .footer {
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        padding: 20px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .footer div {
+        margin-top: 10px;
+      }
+  
+  body
+    .scrollable-container
+      .card-wrapper
+        each result in searchResults
+          .search_content
+            .search_section2
+              a(href=result.imageUrl)
+                img.userImage(src=result.imageUrl)
+            .search_section1
+              .biodata
+                label First Name:
+                  b #{result.aircraft_name.toUpperCase()}
+                br
+                label Number: #{result.aircraft_number.toUpperCase()}
+                br
+                label Hours: #{result.hours}
+                br
+                label Landings: #{result.landings}
+                br
+                a.links(href=`/showInfo?aircraft_name=${result.aircraft_name}&aircraft_number=${result.aircraft_number}`) Show Info
+              .search_buttons
+                a.links(href=`/update_user?aircraft_name=${result.aircraft_name}&aircraft_number=${result.aircraft_number}&hours=${result.hours}&landings=${result.landings}&servicability=${result.servicability}&date=${result.date_of_commisioning}`)
+                  button.update Update
+                a.links(href=`/delete_user?aircraft_name=${result.aircraft_name}&aircraft_number=${result.aircraft_number}`)
+                  button.delete Delete
+
+  .footer
+    p © 2024 Aircraft Management System.
+      div Designed by Eze Opara

@@ -1,0 +1,146 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Aircraft Management System - Home
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    style.
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: 
+          linear-gradient(135deg, rgba(102, 126, 234, 0.2) 50%, rgba(118, 75, 162, 0.8) 30%),
+          url('/images/jets.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #fff;
+      }
+      .header h1 {
+        font-size: 36px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .header p {
+        font-size: 18px;
+        margin: 10px 0 0;
+      }
+      .card-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .card a {
+        color: inherit;
+        text-decoration: none; /* Remove underline from links */
+      }
+      .card i {
+        font-size: 48px;
+        color: #000; /* Changed icon color to black */
+        margin-bottom: 20px;
+      }
+      .card h3 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .card p {
+        font-size: 16px;
+        color: #666;
+        margin: 0;
+      }
+      .logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .logout img {
+        width: 30px;
+        cursor: pointer;
+      }
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        color: #fff; /* Changed color to white */
+        font-size: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 0;
+      }
+      .footer span {
+        color: #667eea; /* Accent color */
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit; /* Inherit color from parent */
+      }
+
+  body
+    .container
+      .header
+        h1 Aircraft Management System
+        p Welcome, #{username}
+        .logout
+          a(href="/logout" title="Logout")
+            img(src="/images/logout.svg", alt="Logout")
+      .card-container
+        a(href="/add_user")
+          .card
+            i.fas.fa-user
+            h3 Add Aircraft
+            p Add a new aircraft.
+          
+        a(href="/showAll")
+          .card
+            i.fas.fa-plane
+            h3 All Aircrafts
+            p View all aircrafts registered.
+
+        a(href="/search_user") 
+          .card
+            i.fas.fa-search
+            h3 Search Aircraft
+            p Search for specific aircraft details.
+      .footer
+        p © 2024 Aircraft Management System. All rights reserved.
+          div Designed by Eze Opara

@@ -1,0 +1,112 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Aircraft Management System - Information Page
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    style.
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: 
+          linear-gradient(135deg, rgba(102, 126, 234, 0.4) 50%, rgba(118, 75, 162, 0.8) 30%),
+          url('/images/jets.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Arrange content with footer at the bottom */
+      }
+
+      .main_content {
+        padding: 20px;
+        flex: 1; /* Take remaining space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .search_main_container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+        overflow-x: auto; /* Add horizontal scrolling on small screens */
+      }
+
+      .search_intro {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        white-space: nowrap; /* Prevent text wrapping */
+      }
+
+      .table th {
+        background-color: #667eea;
+        color: #fff;
+      }
+
+      .table tbody tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .table td {
+        vertical-align: middle;
+      }
+
+      .footer {
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        padding: 20px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+  
+  body
+    .main_content
+      .search_main_container
+        .search_intro
+          p Information Page
+        table.table
+          thead
+            tr
+              th Description
+              th Start Time
+              th Start Date
+              th End Time
+              th End Date
+              th Engineer's Name
+          tbody
+            each result in searchResults
+              tr
+                td #{result.description}
+                td #{result.start_time}
+                td #{result.start_date}
+                td #{result.end_time}
+                td #{result.end_date}
+                td #{result.engineers_name}
+
+  .footer
+    p © 2024 Aircraft Management System.
+      span Designed by Eze Opara

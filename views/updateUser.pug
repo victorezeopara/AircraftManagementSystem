@@ -1,0 +1,220 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Aircraft Management System - Update Aircraft
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    style.
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: 
+          linear-gradient(135deg, rgba(102, 126, 234, 0.4) 50%, rgba(118, 75, 162, 0.8) 30%),
+          url('/images/jets.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Arrange content with footer at the bottom */
+      }
+
+      .form_container_add {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      form.form {
+        width: 100%;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .intro {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .intro img {
+        width: 80px;
+      }
+
+      .intro h6 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .content1,
+      .content2,
+      .content3 {
+        margin-bottom: 20px;
+      }
+
+      .content1 img,
+      .content2 img,
+      .content3 img {
+        width: 80px;
+      }
+
+      .content1 label,
+      .content2 label,
+      .content3 label {
+        font-weight: 600;
+      }
+
+      .content1 input,
+      .content2 input,
+      .content3 input,
+      .content1 textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+
+      .content1 textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .content2 input[type="checkbox"] {
+        margin-top: 10px;
+      }
+
+      .content2 label,
+      .content3 label {
+        margin-bottom: 5px;
+        display: block;
+        font-weight: 600;
+      }
+
+      .content3 label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .content3 input[type="date"],
+      .content3 input[type="time"] {
+        width: 45%;
+        margin: 5px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      .submit {
+        background-color: #667eea;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .submit:hover {
+        background-color: #764ba2;
+      }
+
+      .footer {
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        padding: 20px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+  
+  body
+    .form_container_add
+      form.form(action="/update", method="POST")
+        .intro
+          img(src="", alt="")
+          h6 Update #{query.aircraft_name} #{query.aircraft_number}
+        
+        .content1
+          img(src="/images/1.svg", alt="" width="80px")
+          br
+          br
+          label.label(for="aircraft_name") Aircraft Name
+          br
+          br
+          input.input(type="text" name="aircraft_name" placeholder="Aircraft Name" value=query.aircraft_name)
+          br
+          br
+          label.label(for="aircraft_number") Aircraft Number
+          br
+          br
+          input.input(type="text" name="aircraft_number" placeholder="Aircraft Number" value=query.aircraft_number)
+          br
+          br
+          label.label(for="flight_hours") Flight Hours
+          br
+          br
+          input.input(type="number" name="flight_hours" placeholder="Flight Hours" value=query.hours)
+          br
+          br
+          label.label(for="landings") Landings
+          br
+          br
+          input.input(type="number" name="landings" placeholder="Landings" value=query.landings)
+        
+        .content2
+          img(src="/images/2.svg", alt="" width="80px")
+          br
+          br
+          label.label(for="date") Date of Commissioning
+          br
+          input(type="date" name="date" value=query.date)
+          br
+          br
+          label(for="servicability") Servicability
+          br
+          input(type="checkbox" name="servicability" checked=query.servicability)
+
+        .content3
+          img(src="/images/3.svg", alt="" width="80px")
+          br
+          br
+          label.label(for="maintenance_description") Maintenance Description
+          br
+          textarea(name="maintenance_description", cols="40", rows="5" placeholder="Maintenance Description")
+          br
+          br
+          label.label(for="start_maintenance") Start Maintenance
+          br
+          input(type="date" name="start_date")
+          input(type="time" name="start_time")
+          br
+          br
+          label.label(for="end_maintenance") End Maintenance
+          br
+          input(type="date" name="end_date")
+          input(type="time" name="end_time")
+          br
+          br
+          label.label(for="engineers_name") Engineers Name
+          br
+          input(type="text" name="engineers_name")
+
+        button.submit(type="submit") Submit
+
+  .footer
+    p © 2024 Aircraft Management System.
+      div Designed by Eze Opara
